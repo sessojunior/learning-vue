@@ -46,7 +46,17 @@
       <li v-for="aluno in alunos" :key="aluno.id">{{ aluno.id }} - {{ aluno.nome }} - {{ aluno.status }}</li>
     </ul>
     <hr>
-    <User />
+    <p>Passando propriedades para o componente User:</p>
+    <User descricao="Jovem programador" :listaAlunos="alunos">
+      <p>Slot normal: Texto <b>interno</b> dentro do compronente User, que é colocado em um <b>slot</b>.</p>
+      <template v-slot:header>Slot personalizado 1: header</template>
+      <template v-slot:footer><u>Slot personalizado 2: footer</u></template>
+    </User>
+    <hr>
+    <p>Comunicação do componente filho para o componente pai</p>
+    Nome do curso (componente pai): {{ nomeCurso }}
+    <Filho :nomeCurso :alterarNomeCurso @eventoFilho="alterarNomeCurso($event)" />
+    <hr>
   </div>
 </template>
 
@@ -54,6 +64,7 @@
 import { computed, ref, watch } from 'vue'
 
 import User from './User.vue'
+import Filho from './Filho.vue'
 
 const count = ref(0)
 const isButtonDisabled = true
@@ -121,6 +132,12 @@ const alunos = [
     status: "Cursando"
   },
 ]
+
+const nomeCurso = ref('Curso de Vue.js')
+
+function alterarNomeCurso(valor) {
+  nomeCurso.value = valor
+}
 </script>
 
 <style scoped>
