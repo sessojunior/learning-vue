@@ -13,7 +13,7 @@
     <button :disabled="!isButtonDisabled">Botão ativo</button>
     <hr>
     <p>Two way data-bind:</p>
-    <input type="text" name="nome" value="" v-model="name" />
+    <input type="text" name="name" id="name" value="" v-model="name" />
     <input type="text" v-bind:value="name" v-on:input="name = $event.target.value" />
     <button type="submit">Enviar</button>
     <p>Resultado: <span id="result">{{ name }}</span> - <button @click="alterarNome('José')">Alterar nome</button></p>
