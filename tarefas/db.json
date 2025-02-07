@@ -1,0 +1,24 @@
+{
+  "tasks": [
+    {
+      "id": "1",
+      "title": "Estudar Javascript",
+      "completed": true
+    },
+    {
+      "id": "7313",
+      "title": "Lavar o carro",
+      "completed": false
+    },
+    {
+      "id": "8858",
+      "title": "Ir ao mercado",
+      "completed": true
+    },
+    {
+      "id": "4e5b",
+      "title": "Pagar contas",
+      "completed": false
+    }
+  ]
+}
